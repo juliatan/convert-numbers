@@ -19,7 +19,14 @@ end
 
 def convert_ten_thousands(number)
   string = number.to_s
-  COMPONENTS[string[0..1]] + ' thousand'
+  multiple = number / 10000
+  remainder = number - ( 10000 * multiple )
+
+  if number % 10000 == 0
+    COMPONENTS[string[0..1]] + ' thousand'
+  else
+    COMPONENTS[string[0..1]] + ' thousand and ' + convert_tens(remainder)
+  end
 end
 
 def convert_thousands(number)
