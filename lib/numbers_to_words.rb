@@ -1,5 +1,7 @@
 def convert(number)
-  if number < 10
+  if number == 11
+    'eleven'
+  elsif number < 10
     NUMBERS[number]
   elsif number % 10 == 0
     TENS[number]
