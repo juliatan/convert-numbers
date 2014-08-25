@@ -16,7 +16,10 @@ def convert(number)
 end
 
 def convert_thousands(number)
-  
+  string = number.to_s
+  if number % 1000 == 0
+    COMPONENTS[string[0]] + ' thousand'
+  end
 end
 
 def convert_hundreds(number)
