@@ -2,7 +2,9 @@ def convert(number)
   string = number.to_s
   digits = string.length
 
-  if digits == 3
+  if digits == 4
+    convert_thousands(number)
+  elsif digits == 3
     convert_hundreds(number)
   elsif digits == 2
     convert_tens(number)
@@ -13,12 +15,19 @@ def convert(number)
   end
 end
 
+def convert_thousands(number)
+  
+end
+
 def convert_hundreds(number)
   string = number.to_s
+  multiple = number / 100
+
   if number % 100 == 0
     COMPONENTS[string[0]] + ' hundred'
   else
-    COMPONENTS[string[0]] + ' hundred and ' + COMPONENTS[string[2]]
+    remainder = number - ( 100 * multiple )
+    COMPONENTS[string[0]] + ' hundred and ' + convert_tens(remainder)
   end
 end
 

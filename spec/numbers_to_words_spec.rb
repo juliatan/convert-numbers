@@ -80,6 +80,20 @@ describe 'When converting numbers to words' do
     it 'can convert 101 to one hundred and one' do
       expect(convert(101)).to eq 'one hundred and one'
     end
+
+    it 'can convert 111 to one hundred and eleven' do
+      expect(convert(111)).to eq 'one hundred and eleven'
+    end
+
+    it 'can convert 999 to nine hundred and ninety nine' do
+      expect(convert(999)).to eq 'nine hundred and ninety nine'
+    end
+  end
+
+  context 'thousands' do
+    it 'can convert 1000 to one thousand' do
+      expect(convert(1000)).to eq 'one thousand'
+    end
   end
 
 end
