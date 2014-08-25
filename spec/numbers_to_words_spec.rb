@@ -66,6 +66,10 @@ describe 'When converting numbers to words' do
     it 'can convert 21 to twenty one' do
       expect(convert(21)).to eq 'twenty one'
     end
+
+    it 'can convert 99 to ninety nine' do
+      expect(convert(99)).to eq 'ninety nine'
+    end
   end
 
 end
