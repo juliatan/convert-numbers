@@ -1,6 +1,10 @@
 def convert(number)
   if number < 10
     NUMBERS[number]
+  elsif number = 10
+    'ten'
+  else
+    'N/A'
   end
 end
 

@@ -16,4 +16,10 @@ describe 'When converting numbers to words' do
     end
   end
 
+  context 'from 10 to 90 in multiples of 10' do
+    it 'can convert 10 to ten' do
+      expect(convert(10)).to eq 'ten'
+    end
+  end
+
 end
