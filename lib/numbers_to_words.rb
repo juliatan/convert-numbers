@@ -24,8 +24,10 @@ def convert_ten_thousands(number)
 
   if number % 10000 == 0
     COMPONENTS[string[0..1]] + ' thousand'
-  else
+  elsif string[2] == '0'
     COMPONENTS[string[0..1]] + ' thousand and ' + convert_tens(remainder)
+  else
+    COMPONENTS[string[0..1]] + ' thousand ' + convert_hundreds(remainder)
   end
 end
 

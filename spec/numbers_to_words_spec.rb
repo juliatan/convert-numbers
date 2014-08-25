@@ -124,6 +124,10 @@ describe 'When converting numbers to words' do
     it 'can convert 10011 to ten thousand and eleven' do
       expect(convert(10011)).to eq 'ten thousand and eleven'
     end
+
+    it 'can convert 10111 to ten thousand one hundred and eleven' do
+      expect(convert(10111)).to eq 'ten thousand one hundred and eleven'
+    end
   end
 
 end
