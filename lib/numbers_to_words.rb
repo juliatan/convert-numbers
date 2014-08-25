@@ -44,6 +44,8 @@ def convert_ten_thousands(number)
 
   if number % 10000 == 0
     number_of_thousands + ' thousand'
+  elsif number % 1000 == 0
+    number_of_thousands + ' thousand'
   elsif string[2] == '0'
     number_of_thousands + ' thousand and ' + convert_tens(remainder)
   else
