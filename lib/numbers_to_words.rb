@@ -6,9 +6,7 @@ def convert(number)
     'one million'
   elsif digits == 6
     convert_hundred_thousands(number)
-  elsif digits == 5
-    convert_ten_thousands(number)
-  elsif digits == 4
+  elsif digits == 5 || digits == 4
     convert_thousands(number)
   elsif digits == 3
     convert_hundreds(number)
@@ -34,22 +32,6 @@ def convert_hundred_thousands(number)
   else
     number_of_thousands + ' thousand ' + convert_hundreds(remainder)
   end
-end
-
-def convert_ten_thousands(number)
-  # string = number.to_s
-  # multiple = number / 10000
-  # remainder = number - ( 10000 * multiple )
-  # number_of_thousands = convert_tens(string[0..1].to_i)
-
-  convert_thousands(number)
-  # if number % 1000 == 0
-  #   convert_thousands(number)
-  # elsif string[2] == '0'
-  #   convert_thousands(number)
-  # else
-  #   number_of_thousands + ' thousand ' + convert_hundreds(remainder)
-  # end
 end
 
 def convert_thousands(number)
