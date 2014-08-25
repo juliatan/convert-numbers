@@ -2,7 +2,9 @@ def convert(number)
   string = number.to_s
   digits = string.length
 
-  if digits == 4
+  if digits == 5
+    convert_ten_thousands(number)
+  elsif digits == 4
     convert_thousands(number)
   elsif digits == 3
     convert_hundreds(number)
@@ -13,6 +15,11 @@ def convert(number)
   else
     'N/A'
   end
+end
+
+def convert_ten_thousands(number)
+  string = number.to_s
+  COMPONENTS[string[0..1]] + ' thousand'
 end
 
 def convert_thousands(number)

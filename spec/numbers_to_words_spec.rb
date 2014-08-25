@@ -112,4 +112,10 @@ describe 'When converting numbers to words' do
     end
   end
 
+  context 'ten thousands' do
+    it 'can convert 10000 to ten thousand' do
+      expect(convert(10000)).to eq 'ten thousand'
+    end
+  end
+
 end
