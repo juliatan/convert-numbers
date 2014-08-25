@@ -48,4 +48,10 @@ describe 'When converting numbers to words' do
     end
   end
 
+  context 'from 14 to 19 excluding 15' do
+    it 'can convert 14 to fourteen' do
+      expect(convert(14)).to eq 'fourteen'
+    end
+  end
+
 end
