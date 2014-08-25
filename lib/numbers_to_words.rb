@@ -21,13 +21,22 @@ def convert_ten_thousands(number)
   string = number.to_s
   multiple = number / 10000
   remainder = number - ( 10000 * multiple )
+  number_of_thousands = convert_tens(string[0..1].to_i)
+
+  # if number % 10000 == 0
+  #   COMPONENTS[string[0..1]] + ' thousand'
+  # elsif string[2] == '0'
+  #   COMPONENTS[string[0..1]] + ' thousand and ' + convert_tens(remainder)
+  # else
+  #   COMPONENTS[string[0..1]] + ' thousand ' + convert_hundreds(remainder)
+  # end
 
   if number % 10000 == 0
-    COMPONENTS[string[0..1]] + ' thousand'
+    number_of_thousands + ' thousand'
   elsif string[2] == '0'
-    COMPONENTS[string[0..1]] + ' thousand and ' + convert_tens(remainder)
+    number_of_thousands + ' thousand and ' + convert_tens(remainder)
   else
-    COMPONENTS[string[0..1]] + ' thousand ' + convert_hundreds(remainder)
+    number_of_thousands + ' thousand ' + convert_hundreds(remainder)
   end
 end
 
