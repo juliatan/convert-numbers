@@ -12,7 +12,9 @@ end
 
 UNIQUE = {
   11 => 'eleven',
-  12 => 'twelve'
+  12 => 'twelve',
+  13 => 'thirteen',
+  15 => 'fifteen'
 }
 
 

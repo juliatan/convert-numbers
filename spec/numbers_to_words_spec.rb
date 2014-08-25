@@ -30,13 +30,21 @@ describe 'When converting numbers to words' do
     end
   end
 
-  context 'from 11 to 12' do
+  context 'unique numbers from 11 to 19' do
     it 'can convert 11 to eleven' do
       expect(convert(11)).to eq 'eleven'
     end
 
     it 'can convert 12 to twelve' do
       expect(convert(12)).to eq 'twelve'
+    end
+
+    it 'can convert 13 to thirteen' do
+      expect(convert(13)).to eq 'thirteen'
+    end
+
+    it 'can convert 15 to fifteen' do
+      expect(convert(15)).to eq 'fifteen'
     end
   end
 
