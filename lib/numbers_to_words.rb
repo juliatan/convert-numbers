@@ -3,15 +3,7 @@ def convert(number)
   digits = string.length
 
   if digits == 2
-    if UNIQUE.keys.include? string
-      UNIQUE[string]
-    elsif number % 10 == 0
-      TENS[string]
-    elsif number < 20
-      teens(string)
-    else
-      tens(string)
-    end
+    convert_tens(number)
   elsif digits == 1
     NUMBERS[string]
   else
@@ -19,7 +11,21 @@ def convert(number)
   end
 end
 
-UNIQUE = {
+def convert_tens(number)
+  string = number.to_s
+
+  if UNIQUE_TEENS.keys.include? string
+    UNIQUE_TEENS[string]
+  elsif number % 10 == 0
+    WHOLE_TENS[string]
+  elsif number < 20
+    teens(string)
+  else
+    tens(string)
+  end
+end
+
+UNIQUE_TEENS = {
   '11' => 'eleven',
   '12' => 'twelve',
   '13' => 'thirteen',
@@ -31,7 +37,7 @@ def teens(string)
 end
 
 def tens(string)
-  TENS[string[0] + '0'] + ' ' + NUMBERS[string[1]]
+  WHOLE_TENS[string[0] + '0'] + ' ' + NUMBERS[string[1]]
 end
 
 NUMBERS = {
@@ -46,7 +52,7 @@ NUMBERS = {
   '9' => 'nine'
 }
 
-TENS = {
+WHOLE_TENS = {
   '10' => 'ten',
   '20' => 'twenty',
   '30' => 'thirty',
