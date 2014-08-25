@@ -44,8 +44,6 @@ def convert_ten_thousands(number)
 
   if number % 10000 == 0 || number % 1000 == 0
     convert_thousands(number)
-  # elsif number % 1000 == 0
-  #   convert_thousands(number)
   elsif string[2] == '0'
     convert_thousands(number)
   else
@@ -85,15 +83,9 @@ def convert_tens(number)
 
   if COMPONENTS.keys.include? string
     COMPONENTS[string]
-  elsif number < 20
-    teens(string)
   else
     tens(string)
   end
-end
-
-def teens(string)
-  COMPONENTS[string[1]] + 'teen'
 end
 
 def tens(string)
@@ -114,7 +106,12 @@ COMPONENTS = {
   '11' => 'eleven',
   '12' => 'twelve',
   '13' => 'thirteen',
+  '14' => 'fourteen',
   '15' => 'fifteen',
+  '16' => 'sixteen',
+  '17' => 'seventeen',
+  '18' => 'eighteen',
+  '19' => 'nineteen',
   '20' => 'twenty',
   '30' => 'thirty',
   '40' => 'fourty',
