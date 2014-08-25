@@ -1,3 +1,6 @@
 def convert(number)
-  'one'
+  case number
+  when 1 then 'one'
+  when 2 then 'two'
+  end
 end
