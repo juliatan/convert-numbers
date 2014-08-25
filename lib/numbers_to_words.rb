@@ -2,7 +2,9 @@ def convert(number)
   string = number.to_s
   digits = string.length
 
-  if digits == 6
+  if digits == 7
+    'one million'
+  elsif digits == 6
     convert_hundred_thousands(number)
   elsif digits == 5
     convert_ten_thousands(number)
