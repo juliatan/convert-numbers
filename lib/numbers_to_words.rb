@@ -27,8 +27,10 @@ def convert_hundred_thousands(number)
 
   if number % 100000 == 0
     number_of_thousands + ' thousand'
-  else
+  elsif string[3] == '0'
     number_of_thousands + ' thousand and ' + convert_tens(remainder)
+  else
+    number_of_thousands + ' thousand ' + convert_hundreds(remainder)
   end
 end
 
