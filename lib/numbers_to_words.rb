@@ -42,10 +42,10 @@ def convert_ten_thousands(number)
   remainder = number - ( 10000 * multiple )
   number_of_thousands = convert_tens(string[0..1].to_i)
 
-  if number % 10000 == 0
+  if number % 10000 == 0 || number % 1000 == 0
     convert_thousands(number)
-  elsif number % 1000 == 0
-    convert_thousands(number)
+  # elsif number % 1000 == 0
+  #   convert_thousands(number)
   elsif string[2] == '0'
     convert_thousands(number)
   else
