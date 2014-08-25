@@ -5,7 +5,7 @@ def convert(number)
   if digits == 2
     convert_tens(number)
   elsif digits == 1
-    NUMBERS[string]
+    COMPONENTS[string]
   else
     'N/A'
   end
@@ -14,10 +14,8 @@ end
 def convert_tens(number)
   string = number.to_s
 
-  if UNIQUE_TEENS.keys.include? string
-    UNIQUE_TEENS[string]
-  elsif number % 10 == 0
-    WHOLE_TENS[string]
+  if COMPONENTS.keys.include? string
+    COMPONENTS[string]
   elsif number < 20
     teens(string)
   else
@@ -25,22 +23,15 @@ def convert_tens(number)
   end
 end
 
-UNIQUE_TEENS = {
-  '11' => 'eleven',
-  '12' => 'twelve',
-  '13' => 'thirteen',
-  '15' => 'fifteen'
-}
-
 def teens(string)
-  NUMBERS[string[1]] + 'teen'
+  COMPONENTS[string[1]] + 'teen'
 end
 
 def tens(string)
-  WHOLE_TENS[string[0] + '0'] + ' ' + NUMBERS[string[1]]
+  COMPONENTS[string[0] + '0'] + ' ' + COMPONENTS[string[1]]
 end
 
-NUMBERS = {
+COMPONENTS = {
   '1' => 'one',
   '2' => 'two',
   '3' => 'three',
@@ -49,11 +40,12 @@ NUMBERS = {
   '6' => 'six',
   '7' => 'seven',
   '8' => 'eight',
-  '9' => 'nine'
-}
-
-WHOLE_TENS = {
+  '9' => 'nine',
   '10' => 'ten',
+  '11' => 'eleven',
+  '12' => 'twelve',
+  '13' => 'thirteen',
+  '15' => 'fifteen',
   '20' => 'twenty',
   '30' => 'thirty',
   '40' => 'fourty',
@@ -61,5 +53,5 @@ WHOLE_TENS = {
   '60' => 'sixty',
   '70' => 'seventy',
   '80' => 'eighty',
-  '90' => 'ninety',
+  '90' => 'ninety'
 }
