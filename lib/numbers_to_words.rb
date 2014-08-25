@@ -17,8 +17,13 @@ end
 
 def convert_thousands(number)
   string = number.to_s
+  multiple = number / 1000
+
   if number % 1000 == 0
     COMPONENTS[string[0]] + ' thousand'
+  else
+    remainder = number - ( 1000 * multiple )
+    COMPONENTS[string[0]] + ' thousand and ' + convert_tens(remainder)
   end
 end
 
