@@ -3,7 +3,7 @@ def convert(number)
   digits = string.length
 
   if digits == 3
-    convert_hundreds(string)
+    convert_hundreds(number)
   elsif digits == 2
     convert_tens(number)
   elsif digits == 1
@@ -13,8 +13,13 @@ def convert(number)
   end
 end
 
-def convert_hundreds(string)
-  COMPONENTS[string[0]] + ' hundred'
+def convert_hundreds(number)
+  string = number.to_s
+  if number % 100 == 0
+    COMPONENTS[string[0]] + ' hundred'
+  else
+    COMPONENTS[string[0]] + ' hundred and ' + COMPONENTS[string[2]]
+  end
 end
 
 def convert_tens(number)
