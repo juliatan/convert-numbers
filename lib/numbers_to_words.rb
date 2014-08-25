@@ -21,10 +21,14 @@ end
 
 def convert_hundred_thousands(number)
   string = number.to_s
+  multiple = number / 100000
+  remainder = number - ( 100000 * multiple )
   number_of_thousands = convert_hundreds(string[0..2].to_i)
 
   if number % 100000 == 0
     number_of_thousands + ' thousand'
+  else
+    number_of_thousands + ' thousand and ' + convert_tens(remainder)
   end
 end
 
