@@ -72,4 +72,10 @@ describe 'When converting numbers to words' do
     end
   end
 
+  context 'hundreds' do
+    it 'can convert 100 to one hundred' do
+      expect(convert(100)).to eq 'one hundred'
+    end
+  end
+
 end

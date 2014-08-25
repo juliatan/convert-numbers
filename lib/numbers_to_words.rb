@@ -2,13 +2,19 @@ def convert(number)
   string = number.to_s
   digits = string.length
 
-  if digits == 2
+  if digits == 3
+    convert_hundreds(string)
+  elsif digits == 2
     convert_tens(number)
   elsif digits == 1
     COMPONENTS[string]
   else
     'N/A'
   end
+end
+
+def convert_hundreds(string)
+  COMPONENTS[string[0]] + ' hundred'
 end
 
 def convert_tens(number)
