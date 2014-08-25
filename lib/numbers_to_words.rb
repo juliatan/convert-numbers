@@ -23,8 +23,8 @@ end
 
 def convert_hundred_thousands(number)
   string = number.to_s
-  multiple = number / 100000
-  remainder = number - ( 100000 * multiple )
+  multiple = number / 1000
+  remainder = number - ( 1000 * multiple )
   number_of_thousands = convert_hundreds(string[0..2].to_i)
 
   if number % 1000 == 0
