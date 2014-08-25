@@ -43,11 +43,11 @@ def convert_ten_thousands(number)
   number_of_thousands = convert_tens(string[0..1].to_i)
 
   if number % 10000 == 0
-    number_of_thousands + ' thousand'
+    convert_thousands(number)
   elsif number % 1000 == 0
-    number_of_thousands + ' thousand'
+    convert_thousands(number)
   elsif string[2] == '0'
-    number_of_thousands + ' thousand and ' + convert_tens(remainder)
+    convert_thousands(number)
   else
     number_of_thousands + ' thousand ' + convert_hundreds(remainder)
   end
@@ -59,11 +59,12 @@ def convert_thousands(number)
   remainder = number - ( 1000 * multiple )
 
   if number % 1000 == 0
-    COMPONENTS[string[0]] + ' thousand'
-  elsif string[1] == '0'
-    COMPONENTS[string[0]] + ' thousand and ' + convert_tens(remainder)
+    # string[0..-4] drops last 3 digits in string
+    COMPONENTS[string[0..-4]] + ' thousand'
+  elsif string[-3] == '0'
+    COMPONENTS[string[0..-4]] + ' thousand and ' + convert_tens(remainder)
   else
-    COMPONENTS[string[0]] + ' thousand ' + convert_hundreds(remainder)
+    COMPONENTS[string[0..-4]] + ' thousand ' + convert_hundreds(remainder)
   end
 end
 
