@@ -1,8 +1,8 @@
 def convert(number)
   if number < 10
     NUMBERS[number]
-  elsif number = 10
-    'ten'
+  elsif number % 10 == 0
+    TENS[number]
   else
     'N/A'
   end
@@ -18,4 +18,9 @@ NUMBERS = {
   7 => 'seven',
   8 => 'eight',
   9 => 'nine'
+}
+
+TENS = {
+  10 => 'ten',
+  20 => 'twenty'
 }

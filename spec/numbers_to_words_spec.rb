@@ -20,6 +20,10 @@ describe 'When converting numbers to words' do
     it 'can convert 10 to ten' do
       expect(convert(10)).to eq 'ten'
     end
+
+    it 'can convert 20 to twenty' do
+      expect(convert(20)).to eq 'twenty'
+    end
   end
 
 end
