@@ -62,4 +62,10 @@ describe 'When converting numbers to words' do
     end
   end
 
+  context 'from 21 to 99' do
+    it 'can convert 21 to twenty one' do
+      expect(convert(21)).to eq 'twenty one'
+    end
+  end
+
 end

@@ -1,13 +1,19 @@
 def convert(number)
   string = number.to_s
-  if UNIQUE.keys.include? string
-    UNIQUE[string]
-  elsif number < 10
+  digits = string.length
+
+  if digits == 2
+    if UNIQUE.keys.include? string
+      UNIQUE[string]
+    elsif number % 10 == 0
+      TENS[string]
+    elsif number < 20
+      teens(string)
+    else
+      tens(string)
+    end
+  elsif digits == 1
     NUMBERS[string]
-  elsif number % 10 == 0
-    TENS[string]
-  elsif number < 20
-    teens(string)
   else
     'N/A'
   end
@@ -22,6 +28,10 @@ UNIQUE = {
 
 def teens(string)
   NUMBERS[string[1]] + 'teen'
+end
+
+def tens(string)
+  TENS[string[0] + '0'] + ' ' + NUMBERS[string[1]]
 end
 
 NUMBERS = {
