@@ -22,5 +22,12 @@ NUMBERS = {
 
 TENS = {
   10 => 'ten',
-  20 => 'twenty'
+  20 => 'twenty',
+  30 => 'thirty',
+  40 => 'fourty',
+  50 => 'fifty',
+  60 => 'sixty',
+  70 => 'seventy',
+  80 => 'eighty',
+  90 => 'ninety',
 }

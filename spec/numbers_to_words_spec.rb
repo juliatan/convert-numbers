@@ -24,6 +24,10 @@ describe 'When converting numbers to words' do
     it 'can convert 20 to twenty' do
       expect(convert(20)).to eq 'twenty'
     end
+
+    it 'can convert 30 to thirty' do
+      expect(convert(30)).to eq 'thirty'
+    end
   end
 
 end
