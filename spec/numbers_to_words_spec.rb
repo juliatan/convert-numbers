@@ -138,4 +138,10 @@ describe 'When converting numbers to words' do
     end
   end
 
+  context 'hundred thousands' do
+    it 'can convert 100000 to one hundred thousand' do
+      expect(convert(100000)).to eq 'one hundred thousand'
+    end
+  end
+
 end

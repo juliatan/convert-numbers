@@ -2,7 +2,9 @@ def convert(number)
   string = number.to_s
   digits = string.length
 
-  if digits == 5
+  if digits == 6
+    convert_hundred_thousands(number)
+  elsif digits == 5
     convert_ten_thousands(number)
   elsif digits == 4
     convert_thousands(number)
@@ -17,19 +19,20 @@ def convert(number)
   end
 end
 
+def convert_hundred_thousands(number)
+  string = number.to_s
+  number_of_thousands = convert_hundreds(string[0..2].to_i)
+
+  if number % 100000 == 0
+    number_of_thousands + ' thousand'
+  end
+end
+
 def convert_ten_thousands(number)
   string = number.to_s
   multiple = number / 10000
   remainder = number - ( 10000 * multiple )
   number_of_thousands = convert_tens(string[0..1].to_i)
-
-  # if number % 10000 == 0
-  #   COMPONENTS[string[0..1]] + ' thousand'
-  # elsif string[2] == '0'
-  #   COMPONENTS[string[0..1]] + ' thousand and ' + convert_tens(remainder)
-  # else
-  #   COMPONENTS[string[0..1]] + ' thousand ' + convert_hundreds(remainder)
-  # end
 
   if number % 10000 == 0
     number_of_thousands + ' thousand'
