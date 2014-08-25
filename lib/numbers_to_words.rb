@@ -1,6 +1,6 @@
 def convert(number)
-  if number == 11
-    'eleven'
+  if UNIQUE.keys.include? number
+    UNIQUE[number]
   elsif number < 10
     NUMBERS[number]
   elsif number % 10 == 0
@@ -9,6 +9,12 @@ def convert(number)
     'N/A'
   end
 end
+
+UNIQUE = {
+  11 => 'eleven',
+  12 => 'twelve'
+}
+
 
 NUMBERS = {
   1 => 'one',
