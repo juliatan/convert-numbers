@@ -2,34 +2,17 @@ def convert(number)
   string = number.to_s
   digits = string.length
 
-  if digits == 7
+  case digits
+  when 7
     'one million'
-  elsif digits == 6
-    convert_hundred_thousands(number)
-  elsif digits == 5 || digits == 4
+  when (4..6)
     convert_thousands(number)
-  elsif digits == 3
+  when 3
     convert_hundreds(number)
-  elsif digits == 2
+  when 2
     convert_tens(number)
-  elsif digits == 1
+  when 1
     COMPONENTS[string]
-  else
-    'N/A'
-  end
-end
-
-def convert_hundred_thousands(number)
-  string = number.to_s
-  remainder = number % 1000
-  number_of_thousands = convert_hundreds(string[0..2].to_i)
-
-  if remainder == 0
-    number_of_thousands + ' thousand'
-  elsif string[3] == '0'
-    number_of_thousands + ' thousand and ' + convert_tens(remainder)
-  else
-    number_of_thousands + ' thousand ' + convert_hundreds(remainder)
   end
 end
 
@@ -37,7 +20,10 @@ def convert_thousands(number)
   string = number.to_s
   remainder = number % 1000
   # string[0..-4] drops last 3 digits in string
-  number_of_thousands = convert_tens(string[0..-4].to_i)
+  multiple = string[0..-4].to_i
+  
+  number_of_thousands = 
+    string.length == 6 ? convert_hundreds(multiple) : convert_tens(multiple)
 
   if remainder == 0
     number_of_thousands + ' thousand'
